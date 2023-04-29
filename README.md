@@ -7,12 +7,15 @@ for Disease-Gene Prediction](https://arxiv.org/pdf/1907.05628.pdf)
 
 
 ### Create conda env
+```bash
 conda env create -f environment.yml
 conda activate gene_disease
-
+```
 
 ### Run VGAE and make predictions
+```bash
 python src\train_vgae.py
+```
 
 ### Further reading
 1. https://medium.com/@sunil7545/variational-autoencoders-ce7fe921cce7
