@@ -1,6 +1,6 @@
 ## Gene-Disease link prediction using Pytorch Geometric
 
-Reproduced from [Disease-Gene Interactions with Graph Neural Networks and Graph Autoencoders](https://biolactosil.medium.com/how-to-load-and-visualize-time-series-data-5d72cbf47901) 
+Reproduced from [Disease-Gene Interactions with Graph Neural Networks and Graph Autoencoders](https://medium.com/stanford-cs224w/disease-gene-interactions-with-graph-neural-networks-and-graph-autoencoders-bfae2c28f5ec) 
 
 Paper: [Towards Probabilistic Generative Models Harnessing Graph Neural Networks
 for Disease-Gene Prediction](https://arxiv.org/pdf/1907.05628.pdf)
@@ -20,3 +20,4 @@ python src\train_vgae.py
 ### Further reading
 1. https://medium.com/@sunil7545/variational-autoencoders-ce7fe921cce7
 2. https://medium.com/@sunil7545/kl-divergence-js-divergence-and-wasserstein-metric-in-deep-learning-995560752a53
+3. [geneDRAGNN: Gene Disease Prioritization using Graph Neural Networks](https://ieeexplore.ieee.org/document/9863043)
