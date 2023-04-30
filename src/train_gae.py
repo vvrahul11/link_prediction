@@ -7,10 +7,9 @@ import torch_geometric.transforms as T
 #import matplotlib.pyplot as plt
 #import plotly.express as px
 #from plotly import graph_objs as go
-from torch_geometric.data import download_url, extract_gz
 from torch_geometric.nn import GAE
 from torch_geometric.utils import degree
-from utils import initialize_data
+from utils import initialize_data, get_data
 from model import GCNEncoder
 #from utils import plot_training_stats, plot_roc_curve
 
@@ -18,16 +17,6 @@ torch.manual_seed(0)
 random.seed(0)
 np.random.seed(0)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-
-def get_data():
-    url = 'http://snap.stanford.edu/biodata/datasets/10012/files/DG-AssocMiner_miner-disease-gene.tsv.gz'
-    extract_gz(download_url(url, 'data/'), 'data/')
-
-    data_path = "data/DG-AssocMiner_miner-disease-gene.tsv"
-    df = pd.read_csv(data_path, sep="\t")
-    print(df.head(), '\n')
-    return df, data_path
 
 
 def gae_train(train_data, gae_model, optimizer):
@@ -90,7 +79,13 @@ if __name__ == '__main__':
 
         train_aucs.append(train_auc)
         train_aps.append(train_ap)        
-        print('Epoch: {:03d}, test AUC: {:.4f}, test AP: {:.4f}, train AUC: {:.4f}, train AP: {:.4f}, loss:{:.4f}'.format(epoch, auc, ap, train_auc, train_ap, loss))
+        print('Epoch: {:03d},
+            test AUC: {:.4f},
+            test AP: {:.4f},
+            train AUC: {:.4f},
+            train AP: {:.4f},
+            loss:{:.4f}'.format(epoch, auc, ap, train_auc, train_ap, loss)
+        )
 
     #plot_training_stats('GAE', losses, test_auc, test_ap, train_aucs, train_aps)
     #plot_roc_curve(gae_model, test_dataset)

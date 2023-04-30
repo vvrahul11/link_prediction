@@ -7,7 +7,17 @@ from sklearn.decomposition import PCA
 from sklearn import metrics
 from sklearn.manifold import TSNE
 from torch_geometric.data import Data
+from torch_geometric.data import download_url, extract_gz
 
+
+def get_data():
+    url = 'http://snap.stanford.edu/biodata/datasets/10012/files/DG-AssocMiner_miner-disease-gene.tsv.gz'
+    extract_gz(download_url(url, 'data/'), 'data/')
+
+    data_path = "data/DG-AssocMiner_miner-disease-gene.tsv"
+    df = pd.read_csv(data_path, sep="\t")
+    print(df.head(), '\n')
+    return df, data_path
 
 def load_node_mapping(datafile_path, index_col, offset=0):
   """

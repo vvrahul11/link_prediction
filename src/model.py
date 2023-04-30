@@ -2,11 +2,12 @@ import torch
 import torch.nn as nn
 from torch_geometric.nn import GCNConv
 
+
 class GCNEncoder(torch.nn.Module):
     def __init__(self, in_channels, hidden_size, out_channels, dropout):
         super(GCNEncoder, self).__init__()
-        self.conv1 = GCNConv(in_channels, hidden_size, cached=True) # cached only for transductive learning
-        self.conv2 = GCNConv(hidden_size, out_channels, cached=True) # cached only for transductive learning
+        self.conv1 = GCNConv(in_channels, hidden_size, cached=True)
+        self.conv2 = GCNConv(hidden_size, out_channels, cached=True)
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x, edge_index):
