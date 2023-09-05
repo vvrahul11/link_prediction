@@ -1,4 +1,4 @@
-## Gene-Disease link prediction using Pytorch Geometric
+## Disease-Gene link prediction using Pytorch Geometric
 
 Reproduced from [Disease-Gene Interactions with Graph Neural Networks and Graph Autoencoders](https://medium.com/stanford-cs224w/disease-gene-interactions-with-graph-neural-networks-and-graph-autoencoders-bfae2c28f5ec) 
 
